@@ -2,15 +2,18 @@ import CustomNav from "./CustomNav"
 import Navbar from "react-bootstrap/Navbar"
 import Container from 'react-bootstrap/Container'
 import { FaShoppingCart } from "react-icons/fa" 
+import { Link } from "react-router-dom"
 
 const {Brand,Toggle,Collapse} = Navbar 
 
 const Header = () => {
     return ( 
         <Navbar as="header" expand="sm" bg="info" variant="light">
-            <Container fluid className="justify-content-around">
+            <Container fluid={true} className="justify-content-around">
                 <Brand>
-                    <h1>FUNGI</h1>
+                    <Link to="/">
+                        <h1>FUNGI</h1>
+                    </ Link>
                 </Brand>
                 <Toggle />
                 <Collapse>
