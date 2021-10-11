@@ -1,52 +1,21 @@
-import { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
 
-// import Card from "react-bootstrap/Card"
-// import Button from "react-bootstrap/Button"
-// import ItemCount from "./ItemCount"
+const ItemDetail = ({ title, image, category, price, description, id}) => {
 
-
-
-// const { Body, Img, Footer, Text, Title } = Card
-
-const ItemDetail = (props) => {
-
-    const [identificador] = props.match.params.id;
-    const [items, setItems] = useState({})
-
-        const getItemsAsync = () =>{
-        fetch("https://fakestoreapi.com/products"+identificador)
-        .then(res=>res.json())
-        .then((resp)=>{
-            console.log(resp);
-            setItems(resp)
-        });
-    }
-    // new Promise(resolve => 
-    //     setTimeout(
-    //         () => resolve({items: items_data}),
-    //         2000 
-    //     )
-    
-    // );
-    
-    useEffect(() => {
-        getItemsAsync();
-        
-        // getItemsAsync().then(result => {
-        //     setItems(result.items);
-        // })
-    },[])
-    
-
+console.log(title)
     return ( 
         <div className="col">
             <div className="card" style={{width: '18rem'}}>
-                <img className="card-img-top" src={items.image} alt="imagen_producto" />
+                <img className="card-img-top" src={image} alt="imagen_producto" />
                 <div className="card-body">
-                    <h5 className="card-title">{items.title}</h5>
+                    <p>ITEM DETAIL</p>
+                    <p>ME FALLÓ EL TOMAR LOS DATOS DE LA API</p>
+
+                    <h5 className="card-title">{title}</h5>
                     <p className="card-text">
-                        {items.description}
-                        {items.category} - {items.price}</p>
+                        {description}
+                        {category} - {price}</p>
+                        <Link className="btn btn-primary" to={"/item/"+id}>VER</Link>
                 {/* <ItemCount initial="9" contador={contador} aumentar={aumentar} restar={restar} stock={stock}/> */}
                 </div>
             </div>
