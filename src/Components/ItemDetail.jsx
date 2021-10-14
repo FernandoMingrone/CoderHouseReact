@@ -1,6 +1,16 @@
 import { Link } from "react-router-dom"
+import ItemCount from "./ItemCount"
 
-const ItemDetail = ({ title, image, category, price, description, id}) => {
+const ItemDetail = ({ title,
+                    image,
+                    category,
+                    price,
+                    description,
+                    id,
+                    contador,
+                    aumentar,
+                    restar,
+                    stock}) => {
 
 console.log(title)
     return ( 
@@ -12,8 +22,8 @@ console.log(title)
                     <p className="card-text">
                         {description}
                         {category} - $ {price}</p>
-                        <Link className="btn btn-primary" to={"/item/"+id}>COMPRAR</Link>
-                {/* <ItemCount initial="9" contador={contador} aumentar={aumentar} restar={restar} stock={stock}/> */}
+                        <Link className="btn btn-secondary fs-6"  to={"/item/"+id}>info</Link>
+                <ItemCount initial="9" contador={contador} aumentar={aumentar} restar={restar} stock={stock}/>
                 </div>
             </div>
         </div>

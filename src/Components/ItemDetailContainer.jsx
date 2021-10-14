@@ -1,5 +1,4 @@
 import ItemDetail from "./ItemDetail"
-// import { useParams } from "react-router-dom"
 import { useEffect, useState  } from "react"
 import { useParams } from "react-router-dom"
 
@@ -108,17 +107,17 @@ export default ItemDetailContainer;
 
  
     // const [items, setItems] = useState([])
-    // const [contador, setContador] = useState(0)
-    // const [stock, setStock] = useState(5)
+    // // const [contador, setContador] = useState(0)
+    // // const [stock, setStock] = useState(5)
 
-    // const aumentar = () => {
-    // setContador(contador + 1)
-    // contador >= stock ? setContador(contador + 0) : setContador(contador + 1)
-    // }
+    // // const aumentar = () => {
+    // // setContador(contador + 1)
+    // // contador >= stock ? setContador(contador + 0) : setContador(contador + 1)
+    // // }
 
-    // const restar = () => {
-    // setContador(contador - 1)
-    // }
+    // // const restar = () => {
+    // // setContador(contador - 1)
+    // // }
     
     // const getItemsAsync = () =>{
     //     fetch("https://fakestoreapi.com/products")
