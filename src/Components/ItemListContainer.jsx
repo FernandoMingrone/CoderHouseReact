@@ -25,8 +25,6 @@ const ItemListContainer = () => {
         });
     }
 
-    console.log(items)
-  
      useEffect(() => {
         getItemsAsync();
         

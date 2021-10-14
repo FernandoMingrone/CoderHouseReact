@@ -11,25 +11,46 @@ const ItemDetailContainer = (props) => {
     const [item, setItem] = useState({})
     // const [identificador] = props.match.params.id;
 
-    const getItemsAsync = () =>{
-        fetch("https://fakestoreapi.com/products")
-        .then(res=>res.json())
-        .then((res)=>{setItem(res)
-        });
-    }
+    // const getItemsAsync = () =>{
+    //     fetch("https://fakestoreapi.com/products")
+    //     .then(res=>res.json())
+    //     .then((res)=>{setItem(res)
+    //     });
+    // }
 
-    const getItemDetailAsync = () =>{
-        fetch("https://fakestoreapi.com/products"+resultado)
-        .then(res=>res.json())
-        .then((res)=>{setItem(res)
-        });
-    }
+    // const getItemDetailAsync = () =>{
+    //     fetch(`https://fakestoreapi.com/products${resultado.id}`)
+    //     .then(res=>res.json())
+    //     .then((res)=>{setItem(res)
+    //     });
+    // }
   
-     useEffect(() => {
+    //  useEffect(() => {
+    //     if(Object.keys(resultado).length === 0 ){
+    //          getItemsAsync()
+    //      }else{
+    //          getItemDetailAsync()
+    //      }
+    
+    // },[])
+
+    useEffect(() => {
+         console.log("PRIMER PASO")
         if(Object.keys(resultado).length === 0 ){
-             getItemsAsync()
+             console.log("SEGUNDO PASO A")
+            //getItemsAsync()
+            fetch("https://fakestoreapi.com/products")
+            .then(res=>res.json())
+            .then((res)=>{setItem(res)
+            });
          }else{
-             getItemDetailAsync()
+             console.log("SEGUNDO PASO B")
+            //getItemDetailAsync()
+            console.log("ENTRAMOS ACA")
+            console.log(resultado)
+            fetch('https://fakestoreapi.com/products/' + resultado.id)
+                .then(res=>res.json())
+                .then(json=>setItem(json))          
          }
     
     },[])
@@ -37,7 +58,6 @@ const ItemDetailContainer = (props) => {
     const [contador, setContador] = useState(0)
     const [stock, setStock] = useState(5)
 
-    console.log(resultado)
  
     const aumentar = () => {
     setContador(contador + 1)

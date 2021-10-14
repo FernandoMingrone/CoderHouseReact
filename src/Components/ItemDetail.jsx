@@ -4,13 +4,10 @@ const ItemDetail = ({ title, image, category, price, description, id}) => {
 
 console.log(title)
     return ( 
-        <div className="col">
+        <div className="col d-flex justify-content-center m-4">
             <div className="card" style={{width: '18rem'}}>
                 <img className="card-img-top" src={image} alt="imagen_producto" />
                 <div className="card-body">
-                    <p>ITEM DETAIL</p>
-                    <p>ME FALLÓ EL TOMAR LOS DATOS DE LA API</p>
-
                     <h5 className="card-title">{title}</h5>
                     <p className="card-text">
                         {description}
