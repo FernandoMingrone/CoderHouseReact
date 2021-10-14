@@ -7,8 +7,8 @@ const CustomNav = () => {
     return ( 
         <Nav>
             <Item className="d-flex justify-content-end">
-                <Link to="/categoria/1" className="mx-3">Categoria 1</Link>
-                <Link to="/categoria/2" className="mx-3">Categoria 2</Link>
+                <Link to="/categoria/1" className="mx-3 text-muted text-decoration-none">Categoria 1</Link>
+                <Link to="/categoria/2" className="mx-3 text-muted text-decoration-none">Categoria 2</Link>
 
             </Item>
         </Nav>

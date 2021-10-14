@@ -8,18 +8,18 @@ const {Brand,Toggle,Collapse} = Navbar
 
 const Header = () => {
     return ( 
-        <Navbar as="header" expand="sm" bg="info" variant="light">
+        <Navbar as="header" className="bg-dark" expand="sm" variant="">
             <Container fluid={true} className="d-flex justify-content-between">
                 <Brand>
-                    <Link to="/">
-                        <h1>FUNGI</h1>
+                    <Link to="/" className="text-decoration-none">
+                        <h1 className="text-white">FUNGI</h1>
                     </ Link>
                 </Brand>
                 <div>
                     <Toggle />
                     <Collapse>
                         <CustomNav />
-                        <FaShoppingCart className="m-3" size="25px" />
+                        <FaShoppingCart className="m-3" size="25px" color="white" />
                     </Collapse>
                 </div>
             </Container>
