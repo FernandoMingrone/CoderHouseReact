@@ -11,8 +11,8 @@ console.log(title)
                     <h5 className="card-title">{title}</h5>
                     <p className="card-text">
                         {description}
-                        {category} - {price}</p>
-                        <Link className="btn btn-primary" to={"/item/"+id}>VER</Link>
+                        {category} - $ {price}</p>
+                        <Link className="btn btn-primary" to={"/item/"+id}>COMPRAR</Link>
                 {/* <ItemCount initial="9" contador={contador} aumentar={aumentar} restar={restar} stock={stock}/> */}
                 </div>
             </div>
