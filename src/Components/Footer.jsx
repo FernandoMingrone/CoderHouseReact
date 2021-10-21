@@ -1,3 +1,6 @@
+import { TiSocialTwitter, TiSocialFacebook, AiOutlineGoogle, BsInstagram } from "react-icons/fa" 
+
+
 const Footer = () => {
     return ( 
         <div>
@@ -22,12 +25,6 @@ const Footer = () => {
             </a>
             <a href className="me-4 text-reset">
               <i className="fab fa-instagram" />
-            </a>
-            <a href className="me-4 text-reset">
-              <i className="fab fa-linkedin" />
-            </a>
-            <a href className="me-4 text-reset">
-              <i className="fab fa-github" />
             </a>
           </div>
           {/* Right */}
@@ -111,9 +108,8 @@ const Footer = () => {
         {/* Section: Links  */}
         {/* Copyright */}
         <div className="text-center p-4" style={{backgroundColor: 'rgba(0, 0, 0, 0.05)'}}>
-          © 2021 Copyright:
-          <a className="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
-        </div>
+          © 2021 Copyright
+                  </div>
         {/* Copyright */}
       </footer>
       {/* Footer */}

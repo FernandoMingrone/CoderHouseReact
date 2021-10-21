@@ -57,7 +57,7 @@ const ItemDetailContainer = (props) => {
     const [contador, setContador] = useState(0)
     const [stock, setStock] = useState(5)
 
- 
+ console.log(setStock)
     const aumentar = () => {
     setContador(contador + 1)
     contador >= stock ? setContador(contador + 0) : setContador(contador + 1)
