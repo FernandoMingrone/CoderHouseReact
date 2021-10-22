@@ -6,18 +6,7 @@ import { useEffect, useState  } from "react"
 const ItemListContainer = () => {
     
     const [items, setItems] = useState([])
-    const [contador, setContador] = useState(0)
-    const [stock, setStock] = useState(5)
-
-    const aumentar = () => {
-    setContador(contador + 1)
-    contador >= stock ? setContador(contador + 0) : setContador(contador + 1)
-    }
-
-    const restar = () => {
-    setContador(contador - 1)
-    }
-    
+ 
     const getItemsAsync = () =>{
         fetch("https://fakestoreapi.com/products")
         .then(res=>res.json())
@@ -32,7 +21,7 @@ const ItemListContainer = () => {
     },[])
     return ( 
         <>
-            <ItemList items={items} contador={contador} aumentar={aumentar} restar={restar}/>
+            <ItemList items={items} />
         </>
      );
 }
