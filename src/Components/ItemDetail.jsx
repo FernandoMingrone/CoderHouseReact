@@ -1,29 +1,20 @@
 import { Link } from "react-router-dom"
 import ItemCount from "./ItemCount"
 
-const ItemDetail = ({ title,
-                    image,
-                    category,
-                    price,
-                    description,
-                    id,
-                    contador,
-                    aumentar,
-                    restar,
-                    stock}) => {
+const ItemDetail = ({ item }) => {
 
-console.log(title)
+
     return ( 
         <div className="col d-flex justify-content-center m-4">
             <div className="card" style={{width: '18rem'}}>
-                <img className="card-img-top" src={image} alt="imagen_producto" />
+                <img className="card-img-top" src={item.image} alt="imagen_producto" />
                 <div className="card-body">
-                    <h5 className="card-title">{title}</h5>
+                    <h5 className="card-title">{item.title}</h5>
                     <p className="card-text">
-                        {description}
-                        {category} - $ {price}</p>
-                        <Link className="btn btn-secondary fs-6"  to={"/item/"+id}>info</Link>
-                <ItemCount initial="9" contador={contador} aumentar={aumentar} restar={restar} stock={stock}/>
+                        {item.description}
+                        {item.category} - $ {item.price}</p>
+                        <Link className="btn btn-secondary fs-6"  to={"/item/"+item.id}>info</Link>
+                <ItemCount />
                 </div>
             </div>
         </div>

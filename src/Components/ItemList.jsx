@@ -3,7 +3,7 @@ import Item from "./Item"
 
 
 
-const ItemList = ({ items, restar, aumentar, contador }) => {
+const ItemList = ({ items }) => {
 
 
     return ( 
@@ -11,9 +11,7 @@ const ItemList = ({ items, restar, aumentar, contador }) => {
             <Row>
                         
                 {items.length>0 && items.map((item, pos) => {
-                        return <Item key={pos} id={item.id} category={item.category} price={item.price} title={item.title} image={item.image} contador={contador} aumentar={aumentar} 
-                            restar={restar}
-                            stock={item.stock}/>
+                        return <Item key={pos} id={item.id} category={item.category} price={item.price} title={item.title} image={item.image}/>
                 
                 })
                 } 
