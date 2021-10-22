@@ -12,7 +12,7 @@ const ItemDetailContainer = (props) => {
 
 
     useEffect(() => {
-         console.log("PRIMER PASO")
+        //  console.log("PRIMER PASO")
         if(Object.keys(resultado).length === 0 ){
             //  console.log("SEGUNDO PASO A")
             //getItemsAsync()

@@ -1,10 +1,7 @@
-// import Card from "react-bootstrap/Card"
-// import Button from "react-bootstrap/Button"
-// import ItemCount from "./ItemCount"
 import { Link } from "react-router-dom"
 
 
-const Item = ({aumentar, contador, restar, stock, title, image, id, category, price, description}) => {
+const Item = ({title, image, id, category, price, description}) => {
 
     return ( 
         <div className="col">
@@ -25,4 +22,3 @@ const Item = ({aumentar, contador, restar, stock, title, image, id, category, pr
 }
 export default Item;
 
-        //         <ItemCount initial="9" contador={contador} aumentar={aumentar} restar={restar} stock={stock}/>

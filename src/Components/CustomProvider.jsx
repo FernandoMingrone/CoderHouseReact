@@ -1,38 +1,44 @@
-import { useState, createContext } from "react";
+import { useState, createContext, useContext } from "react";
 
 export const contexto = createContext()
 
-const { Provider } = contexto;
+const { Provider } = contexto; // Consumer no se usa tanto ahora, hay otra forma de consumir el contexto
+                               //ya que solo se podria usar en formato jsx
+                               //En vez del consumer se usa el hook useContext 
 
+export const useCarrito = () => {
+    return useContext(contexto)
+}
 
 const CustomProvider = ({children}) => {
 
-    const [carrito, setCarrito] = useState([])
+        const [carrito, setCarrito] = useState([])
+        console.log(carrito)
+        const agregarProducto = (item) => {
+            setCarrito([item])
+        }
 
-    const agregarProducto = (producto) => {
+        const eliminarProducto = (id) => {
+            console.log(id)
+        }
 
-    }
+        const vaciarCarrito = () => {
+            setCarrito([])
+        }
 
-    const eliminarProducto = (producto) => {
-        
-    }
+        const isInCarrito = (item) => {
+            
+        }
+        // const cambiarCarrito = (nuevoCarrito) => {
+        //     setCarrito(nuevoCarrito)
+        // }
 
-    const vaciarCarrito = (producto) => {
-        
-    }
-
-    const isInCarrito = (producto) => {
-        
-    }
-    const cambiarNombre = (nuevoNombre) => {
-        setNombre(nuevoNombre)
-    }
-
-    const valor_del_contexto = {
-        nombre,
-        cambiarNombre
-    }
-
+        const valor_del_contexto = {
+            carrito,
+            agregarProducto,
+            eliminarProducto,
+            vaciarCarrito
+        }
 
 
     return (

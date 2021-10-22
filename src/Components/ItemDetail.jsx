@@ -1,25 +1,24 @@
 import { Link } from "react-router-dom"
+import { useCarrito } from "./CustomProvider"
 import ItemCount from "./ItemCount"
 
-const ItemDetail = ({ item }) => {
+const ItemDetail = ({ item, valor_del_contexto }) => {
 
-
-//TRAERME EL CONTEXTO
-//TRAER EL HOOK PARA LEER EL CONTEXTO
-//DE TODO EL CONTEXTO SOLO ME SIRVE EL AGREGAR PRODUCTO
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//PERO EN EL WIDGET Y EN EL CART SI ME VAN A FUNCIONAR LAS OTRAS FUNCIONES
-//EN ESOS VOY A TENER QUE SACAR EL CARRITO PARA SABER CUANTAS UNIDADES Y TODO ESO, RECORRER EL ARRAY Y MOSTRARLO EN PANTALLA
-//VOY A TENER QUE USAR EL CONTEXTO PERO NO CAMBIARLO.
-//QUEDO EL COMO SE LEE EL CONTEXTO
-
-//REVISAR EL REPO DEL PROFE
-
+    const {agregarProducto} = useCarrito() //agarra al contexto
+    //const [carrito] = useCarrito()
 
     const onAdd = (cantidad) => {
-        console.log("item detail")
+        // console.log("item detail")
+        // console.log(item)
+        
+        agregarProducto(item, cantidad)
         console.log(item)
         console.log(cantidad)
+        //carrito.push(item)
+
+        
+
+       
     }
 
     return ( 
@@ -54,3 +53,19 @@ const ItemDetail = ({ item }) => {
         //         <Button variant="secondary">Ver detalle</Button>
         //     </Footer>
         // </Card>
+
+
+
+//TRAERME EL CONTEXTO
+//TRAER EL HOOK PARA LEER EL CONTEXTO
+
+
+
+//DE TODO EL CONTEXTO SOLO ME SIRVE EL AGREGAR PRODUCTO
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//PERO EN EL WIDGET Y EN EL CART SI ME VAN A FUNCIONAR LAS OTRAS FUNCIONES
+//EN ESOS VOY A TENER QUE SACAR EL CARRITO PARA SABER CUANTAS UNIDADES Y TODO ESO, RECORRER EL ARRAY Y MOSTRARLO EN PANTALLA
+//VOY A TENER QUE USAR EL CONTEXTO PERO NO CAMBIARLO.
+//QUEDO EL COMO SE LEE EL CONTEXTO
+
+//REVISAR EL REPO DEL PROFE
