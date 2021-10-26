@@ -14,6 +14,8 @@ const init = JSON.parse(localStorage.getItem("carrito")) || []
 function App() {
 
 
+  //EL CONTEXTO LO PUSE EN EL APP PROVISORIO, LO TENGO QUE PONER EN EL CartContext todavía
+
   const [carrito, setCarrito] = useState(init)
   console.log(carrito)
 
