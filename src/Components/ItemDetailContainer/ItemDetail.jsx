@@ -1,24 +1,37 @@
+import { useContext } from "react"
 import { Link } from "react-router-dom"
-import { useCarrito } from "./CustomProvider"
+import { CartContext } from "../../context/CartContext"
 import ItemCount from "./ItemCount"
 
-const ItemDetail = ({ item, valor_del_contexto }) => {
+const ItemDetail = ( {item} ) => {
 
-    const {agregarProducto} = useCarrito() //agarra al contexto
-    //const [carrito] = useCarrito()
+//1) itemDetail recibe del contexto addToCart
+//2) itemDetail crea handleAgregar y usa addToCart pasandole por props el item y su data
+//3) itemDetail le manda handleAgregar por props a ItemCount
+//3) itemCount toma la cantidad por medio parametro de la funcion handleAgregar
+//3) itemDetail recibe la cantidad por medio del parametro de handleAgregar (stateUpLifting)
 
-    const onAdd = (cantidad) => {
-        // console.log("item detail")
-        // console.log(item)
-        
-        agregarProducto(item, cantidad)
-        console.log(item)
+    const { addToCart } = useContext(CartContext)
+    
+    console.log(item)
+    
+    const handleAgregar = (cantidad) => {
+
         console.log(cantidad)
-        //carrito.push(item)
-
         
+        const newItem = {
+            id: item.id,
+            image : item.image,
+            price : item.price,
+            title : item.title,
+            category : item.category,
+            description : item.description,
+            cantidad,
+        }
 
-       
+        if (cantidad > 0) {
+            addToCart(newItem)
+        }
     }
 
     return ( 
@@ -31,14 +44,14 @@ const ItemDetail = ({ item, valor_del_contexto }) => {
                         {item.description}
                         {item.category} - $ {item.price}</p>
                         <Link className="btn btn-secondary fs-6"  to={"/item/"+item.id}>info</Link>
-                <ItemCount  onAdd={onAdd}/>
+                <ItemCount handleAgregar={handleAgregar}/>
                 </div>
             </div>
         </div>
         );
-   }
+}
     
-   export default ItemDetail;
+export default ItemDetail;
 
         // <Card className="w-75" style={{minWidth: 200, height: 800}}>
         //     <Img src={imagen} alt={title} style={{minWidth: 200, height: 800}}/>

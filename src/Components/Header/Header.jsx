@@ -1,8 +1,8 @@
-import CustomNav from "./CustomNav"
+import CustomNav from "../NavBar/CustomNav"
 import Navbar from "react-bootstrap/Navbar"
 import Container from 'react-bootstrap/Container'
-import { FaShoppingCart } from "react-icons/fa" 
 import { Link } from "react-router-dom"
+import CartWidget from "./CartWidget"
 
 const {Brand,Toggle,Collapse} = Navbar 
 
@@ -19,7 +19,9 @@ const Header = () => {
                     <Toggle />
                     <Collapse>
                         <CustomNav />
-                        <FaShoppingCart className="m-3" size="25px" color="white" />
+                        <Link to="/cart">
+                            <CartWidget />
+                        </Link>
                     </Collapse>
                 </div>
             </Container>
