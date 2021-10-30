@@ -16,8 +16,10 @@ const ItemCount = ({initial = 1, handleAgregar}) => {
     }
 
     const restar = () => {
+        if (cantidad > 1) {
     setCantidad(cantidad - 1)
     }
+}
 
     const confirm = () => {
         handleAgregar(cantidad)
