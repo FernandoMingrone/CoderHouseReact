@@ -32,13 +32,18 @@ const CartProvider = ( {children} ) => {
     localStorage.setItem("carrito", JSON.stringify(carrito))
     
   }, [carrito])
-    return (
-        <CartContext.Provider value={ { 
+
+  const valor_del_contexto = {
         carrito,
         addToCart,
         removeItem,
         calcularCantidad,
-        vaciarCarrito} }> 
+        vaciarCarrito}
+
+    return (
+        <CartContext.Provider value={ 
+          valor_del_contexto
+         }> 
             {children}
         </CartContext.Provider>
         

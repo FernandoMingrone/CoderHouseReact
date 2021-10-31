@@ -29,6 +29,7 @@ const CartScreen = () => {
                 }
                 <hr/>
                 {carrito.length > 0 ? (<button className="btn bg-danger" onClick={vaciarCarrito}>Vaciar Carrito</button>) : (<Link to="/"><button className="btn bg-danger">Seguir comprando</button></Link>)}
+                
             </div>
         </>
 );
