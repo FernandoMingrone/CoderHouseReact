@@ -6,6 +6,7 @@ import ItemListContainer from "./Components/ItemListContainer/ItemListContainer"
 import { BrowserRouter, Switch, Route } from "react-router-dom"
 import CartProvider from "./context/CartContext"
 import CartScreen from "./Components/CartScreen/CartScreen"
+import UIProvider from "./context/UIContext"
 
 
 function App() {
@@ -13,33 +14,35 @@ function App() {
 
   return (
     <>
-      <CartProvider>
+      <UIProvider>
 
-        <BrowserRouter>
+        <CartProvider>
 
-          <Header />
+          <BrowserRouter>
 
-          <Container fluid>
+            <Header />
 
-              <Switch> 
-                <Route exact path="/" component={ItemListContainer}/>
+            <Container fluid>
 
-                <Route path="/categoria/:id" component={ItemListContainer}/>
+                <Switch> 
+                  <Route exact path="/" component={ItemListContainer}/>
 
-                <Route path="/item/:id" component={ItemDetailContainer}/>
+                  <Route path="/categoria/:id" component={ItemListContainer}/>
 
-                <Route path="/cart" component={CartScreen}/>
+                  <Route path="/item/:id" component={ItemDetailContainer}/>
 
-              </Switch>
+                  <Route path="/cart" component={CartScreen}/>
+
+                </Switch>
 
 
-          </Container>
-            <Footer />
+            </Container>
+              <Footer />
 
-        </BrowserRouter>
+          </BrowserRouter>
 
-      </CartProvider>
-
+        </CartProvider>
+      </UIProvider>
     </> 
   );
 }

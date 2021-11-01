@@ -11,7 +11,7 @@ const ItemDetail = ( {item} ) => {
 //3) itemCount toma la cantidad por medio parametro de la funcion handleAgregar
 //3) itemDetail recibe la cantidad por medio del parametro de handleAgregar (stateUpLifting)
 
-    const { addToCart } = useContext(CartContext)
+    const { addToCart, isInCart } = useContext(CartContext)
     
     console.log(item)
     
@@ -43,8 +43,10 @@ const ItemDetail = ( {item} ) => {
                     <p className="card-text">
                         {item.description}
                         {item.category} - $ {item.price}</p>
-                        <Link className="btn btn-secondary fs-6"  to={"/item/"+item.id}>info</Link>
-                <ItemCount handleAgregar={handleAgregar}/>
+                        <Link className="btn btn-secondary fs-6 m-3"  to={"/item/"+item.id}>info</Link>
+            { isInCart(item.id) ? <Link to="/cart" className="btn btn-info">Terminar mi compra</Link>
+                           : <ItemCount handleAgregar={handleAgregar}/> }
+                           <Link to="/"><button className="btn btn-success m-2">Seguir comprando</button></Link>
                 </div>
             </div>
         </div>

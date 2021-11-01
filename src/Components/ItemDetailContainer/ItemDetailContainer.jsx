@@ -1,14 +1,16 @@
 import ItemDetail from "./ItemDetail"
-import { useEffect, useState  } from "react"
+import { useContext, useEffect, useState  } from "react"
 import { useParams } from "react-router-dom"
+import { UIContext } from "../../context/UIContext"
 
 
 const ItemDetailContainer = () => {
     
-
+    
+    const {loading, setLoading} = useContext(UIContext);
     const resultado = useParams()
     const [item, setItem] = useState({})
-    const [loading, setLoading] = useState(false)
+    
 
     console.log(item)
 
@@ -17,7 +19,7 @@ const ItemDetailContainer = () => {
         if(Object.keys(resultado).length === 0 ){
 
             fetch("https://fakestoreapi.com/products")
-            .then(res=>res.json())
+            .then(res=>res.json()) 
             .then((res)=>{setItem(res)
             })
             .finally(()=>{setLoading(false)});

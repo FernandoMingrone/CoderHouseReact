@@ -6,13 +6,13 @@ import { Link } from "react-router-dom";
 
 const CartScreen = () => {
     
-    const { carrito, removeItem, vaciarCarrito } = useContext(CartContext)
+    const { carrito, removeItem, vaciarCarrito, calcularTotal } = useContext(CartContext)
     
     //ME FALTA ARMAR BIEN EL CartScreen para que muestre bien todo, la cantidad y los precios
 
     return ( 
         <>
-            <div className="container my-5">
+            <div className="container my-5" style={{ height: "45vh" }}>
                 <h2>Resumen de compra</h2>
                 {carrito.map( (item) => ( 
                         <div className="card" style={{width: '18rem'}}>
@@ -28,8 +28,11 @@ const CartScreen = () => {
                 ))
                 }
                 <hr/>
-                {carrito.length > 0 ? (<button className="btn bg-danger" onClick={vaciarCarrito}>Vaciar Carrito</button>) : (<Link to="/"><button className="btn bg-danger">Seguir comprando</button></Link>)}
-                
+                <div className="d-flex align-items-center" style={{ height: "20vh" }}>
+                    <h3 className="m-4">Precio total: ${calcularTotal()}</h3>
+                    {carrito.length > 0 ? (<button className="btn bg-danger m-2" onClick={vaciarCarrito}>Vaciar Carrito</button>) : (<button className="btn bg-danger" disabled>Vaciar Carrito</button>)}
+                    <Link to="/"><button className="btn btn-success m-2">Seguir comprando</button></Link>
+                </div>
             </div>
         </>
 );

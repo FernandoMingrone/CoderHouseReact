@@ -1,13 +1,12 @@
 import ItemList from "./ItemList"
-// import { useParams } from "react-router-dom"
-import { useEffect, useState  } from "react"
-import { Container } from "react-bootstrap"
+import { useContext, useEffect, useState  } from "react"
+import { UIContext } from "../../context/UIContext"
 
 
 const ItemListContainer = () => {
     
     const [items, setItems] = useState([])
-    const [loading, setLoading] = useState(false)
+    const {loading, setLoading} = useContext(UIContext)
  
     
     const getItemsAsync = () =>{
