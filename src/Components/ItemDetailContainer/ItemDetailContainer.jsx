@@ -2,6 +2,7 @@ import ItemDetail from "./ItemDetail"
 import { useContext, useEffect, useState  } from "react"
 import { useParams } from "react-router-dom"
 import { UIContext } from "../../context/UIContext"
+import { getFirestore } from "../../firebase/config"
 
 
 const ItemDetailContainer = () => {
@@ -16,22 +17,24 @@ const ItemDetailContainer = () => {
 
     useEffect(() => {
         setLoading(true)
-        if(Object.keys(resultado).length === 0 ){
+        
+        const db = getFirestore()
+        const productos = db.collection("productos")
+        const item = productos.doc(resultado.id)
 
-            fetch("https://fakestoreapi.com/products")
-            .then(res=>res.json()) 
-            .then((res)=>{setItem(res)
+        item.get()
+            .then((doc) => {
+                setItem({
+                    id: doc.id,
+                    ...doc.data()
+                })
+         })
+         .catch( err => console.log(err))
+         .finally(() => {
+             setLoading(false)
             })
-            .finally(()=>{setLoading(false)});
-         }else{
-
-            fetch('https://fakestoreapi.com/products/' + resultado.id)
-                .then(res=>res.json())
-                .then(json=>setItem(json))   
-                .finally(()=>{setLoading(false)});       
-         }
     
-    }, []) 
+    }, [ resultado.id, setLoading]) 
 
 
    

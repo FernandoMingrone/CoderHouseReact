@@ -7,9 +7,10 @@ const CustomNav = () => {
     return ( 
         <Nav>
             <Item className="d-flex justify-content-end">
-                <Link to="/categoria/1" className="mx-3 text-muted text-decoration-none">Categoria 1</Link>
-                <Link to="/categoria/2" className="mx-3 text-muted text-decoration-none">Categoria 2</Link>
-
+                <Link exact to="/productos/electronics" className="mx-3 text-muted text-decoration-none">electronics</Link>
+                <Link exact to="/productos/jewelery" className="mx-3 text-muted text-decoration-none">jewelery</Link>
+                <Link exact to="/productos/women's clothing" className="mx-3 text-muted text-decoration-none">women's clothing</Link>
+                <Link exact to="/productos/men's clothing" className="mx-3 text-muted text-decoration-none">men's clothing</Link>
             </Item>
         </Nav>
      );
