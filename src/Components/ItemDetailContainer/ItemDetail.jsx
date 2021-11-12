@@ -45,9 +45,9 @@ const ItemDetail = ( {item} ) => {
                         {item.category}</p>
                         <p>$ {item.price}</p>
                         <Link className="btn btn-secondary fs-6 m-3"  to={"/item/"+item.id}>info</Link>
-            { isInCart(item.id) ? <Link to="/cart" className="btn btn-info">Terminar mi compra</Link>
-                           : <ItemCount handleAgregar={handleAgregar}/> }
-                           <Link to="/"><button className="btn btn-success m-2">Seguir comprando</button></Link>
+            { isInCart(item.id) ? <Link to="/cart" className="btn btn-info">Ir al Carrito</Link>
+                        : <ItemCount handleAgregar={handleAgregar} stock={item.stock}/> }
+                        <Link to="/"><button className="btn btn-success m-2">Seguir comprando</button></Link>
                 </div>
             </div>
         </div>

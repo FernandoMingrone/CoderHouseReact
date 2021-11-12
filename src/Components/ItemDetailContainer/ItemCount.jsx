@@ -3,12 +3,9 @@ import Button from "react-bootstrap/Button"
 import Container from "react-bootstrap/Container"
 
 
-const ItemCount = ({initial = 1, handleAgregar}) => {
+const ItemCount = ({initial = 1, handleAgregar, stock}) => {
 
     const [cantidad, setCantidad] = useState(initial)
-    const [stock] = useState(5) //stock de ejemplo
-
-    
 
     const aumentar = () => {
     setCantidad(cantidad + 1)
