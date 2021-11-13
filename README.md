@@ -26,6 +26,6 @@ Como levantar el proyecto
 4.  Una vez posicionado en esa carpeta ejecutar por consola "npm install"
 5.  Luego correr el comando "npm start"
 6.  Abrir el browser y dirigirse a la url <http://localhost:3000/>
-
-[(https://www.loom.com/share/1d18a0cda1934b46baf5222cd558514c)]
+7.  
+(https://www.loom.com/share/1d18a0cda1934b46baf5222cd558514c)
 
