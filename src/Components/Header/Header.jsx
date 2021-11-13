@@ -13,7 +13,7 @@ const Header = () => {
  
 
     return ( 
-        <Navbar as="header" className="bg-dark" expand="sm" variant="">
+        <Navbar as="header" className="bg-dark" expand="sm" variant="dark">
             <Container fluid={true} className="d-flex justify-content-between">
                 <Brand>
                     <Link to="/" className="text-decoration-none">
