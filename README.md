@@ -30,4 +30,3 @@ Como levantar el proyecto
 
 ## Demo
 
-![Demo](https://media.giphy.com/media/MX9ifJwyXq4WBzx0tf/giphy.gif)
