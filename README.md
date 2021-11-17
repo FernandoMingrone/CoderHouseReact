@@ -30,4 +30,4 @@ Como levantar el proyecto
 
 ## Demo
 
-![Demo](https://www.loom.com/share/ff336457b2a446bfa5a625939f433ac1)
+![Demo](https://media.giphy.com/media/MX9ifJwyXq4WBzx0tf/giphy.gif)
