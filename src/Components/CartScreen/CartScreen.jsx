@@ -7,8 +7,7 @@ import { Link } from "react-router-dom";
 const CartScreen = () => {
     
     const { carrito, removeItem, vaciarCarrito, calcularTotal } = useContext(CartContext)
-    
-    //ME FALTA ARMAR BIEN EL CartScreen para que muestre bien todo, la cantidad y los precios
+
 
     return ( 
         <>

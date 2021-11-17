@@ -5,7 +5,7 @@ const Item = ({title, image, id, category, price, description}) => {
 
     return ( 
         <div className="col">
-            <div className="card" style={{width: '18rem'}}>
+            <div className="card" style={{width: '15rem'}}>
                 <img className="card-img-top" src={image} alt="imagen_producto" />
                 <div className="card-body">
                     <h5 className="card-title">{title}</h5>
