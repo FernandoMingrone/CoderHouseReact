@@ -27,4 +27,4 @@ Como levantar el proyecto
 5.  Luego correr el comando "npm start"
 6.  Abrir el browser y dirigirse a la url <http://localhost:3000/>
 
-
+[Link](https://www.loom.com/share/ff336457b2a446bfa5a625939f433ac1/ "Video de muestra del E-commerce")
