@@ -7,7 +7,8 @@ import { BrowserRouter, Switch, Route } from "react-router-dom"
 import CartProvider from "./context/CartContext"
 import CartScreen from "./Components/CartScreen/CartScreen"
 import UIProvider from "./context/UIContext"
-import Checkout from "./Checkout/Checkout"
+import Checkout from "./Components/Checkout/Checkout"
+
 
 
 function App() {

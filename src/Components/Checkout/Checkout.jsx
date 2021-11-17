@@ -1,11 +1,9 @@
 import { useContext, useState } from "react";
 import { Redirect } from "react-router";
-import { CartContext } from "../context/CartContext";
-import { getFirestore } from "../firebase/config";
-import firebase from "firebase";
-import "firebase/firestore";
+import { UIContext } from "../../context/UIContext";
+import { CartContext } from "../../context/CartContext";
+import generarOrden from "../../firebase/generarOrden";
 import Swal from "sweetalert2";
-import { UIContext } from "../context/UIContext";
 
 
 const Checkout = () => {
@@ -30,47 +28,46 @@ const Checkout = () => {
     const handleSubmit = (e) => {
     e.preventDefault();
 
-    //generar el objeto de orden
-    const orden = {
-        buyer: {
-            ...values
-        },
-        items: carrito.map((el) => ({id: el.id, precio: el.price, nombre: el.title, cantidad: el.cantidad})),
-        total: calcularTotal(),
-        date: firebase.firestore.Timestamp.fromDate(new Date())
+    if (values.nombre === "" || values.apellido === "" || values.email === "" || values.tel === "") {
+        Swal.fire({
+            icon: "error",
+            title: "Error",
+            text: "Debe completar todos los campos",
+        });
+        return;
     }
 
-    //enviar la orden a firestore
-
-    const db = getFirestore();
-    const orders = db.collection("orders");
-
-    setLoading(true);
-    orders.add(orden)
-    .then((res) => {
-        console.log(res.id);
-
-        Swal.fire({
-        icon: 'success',
-        title: 'Su compra fue registrada',
-        text: `Guarde su número de orden: ${res.id}`,
-        willClose: () => {
-            vaciarCarrito();
+    setLoading(true)
+    try{
+        generarOrden(values, carrito, calcularTotal())
+            .then((res) => {
+                Swal.fire({
+                        icon: 'success',
+                        title: 'Orden registrada!',
+                        text: `Guarde su número: ${res}`,
+                        willClose: () => {
+                            vaciarCarrito();
+                        }
+                    })
+                })
+                .catch((err) => {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Producto sin stock',
+                        text: `No hay stock de: ${err.map(el => el.title).join(", ")}`
+                    })
+            })
+            .finally(() => {
+                setLoading(false)
+            })
+        } catch(err) {
+            Swal.fire({
+                        icon: 'error',
+                        title: 'Error inesperado',
+                        text: err
+                    })
         }
-        }) 
-
-    })
-    .catch((err) => {
-        Swal.fire({
-        icon: 'error',
-        title: 'Error Inesperado',
-        text: `${err}`,
-        })
-    }) 
-    .finally(() => {
-        setLoading(false)
-    })
-    };
+    }
 
     return ( 
         <>
@@ -135,6 +132,5 @@ const Checkout = () => {
         </>
     );  
 }
-export default Checkout;
 
-//min 25 clase 7
+export default Checkout;

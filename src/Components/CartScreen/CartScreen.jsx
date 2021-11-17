@@ -18,9 +18,9 @@ const CartScreen = () => {
                 {carrito.map( (item) => ( 
                         <div className="card" key={item.id} style={{width: '18rem'}}>
                             <img className="card-img-top w-50 m-5" src={item.image} alt="imagen_producto" />
-                            <li class="list-group-item">{item.title}</li>
-                            <li class="list-group-item">Cantidad: {item.cantidad}</li>
-                            <li class="list-group-item">Precio: {item.price * item.cantidad}</li>
+                            <li className="list-group-item">{item.title}</li>
+                            <li className="list-group-item">Cantidad: {item.cantidad}</li>
+                            <li className="list-group-item">Precio: {item.price * item.cantidad}</li>
                             <button className= "btn btn-danger" onClick={() => removeItem(item.id)}>
                                 <BsTrash />
                                 </button>
