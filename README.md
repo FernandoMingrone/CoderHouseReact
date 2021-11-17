@@ -28,6 +28,9 @@ Como levantar el proyecto
 6.  Abrir el browser y dirigirse a la url <http://localhost:3000/>
 
 
-## Demo
+Demo
 
 ![Demo](https://media.giphy.com/media/8gAQJzmWskjZpMNKSn/giphy.gif)
+
+[Link](https://www.loom.com/share/9b9e0ec1afe74d7b9754d810d0d3a602/ "Demo").
+
